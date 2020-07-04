@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Calc v-bind:title="message" v-on:result-event="appAction"/>
+    <Calc v-bind:title="message" v-on:result-event="appAction" />
     <hr>
     <div>
       <table v-html="log"></table>
@@ -25,9 +25,9 @@ export default {
 
   computed:{
     log:function(){
-      var table = '<tr><th class = "head">Expression</th>' + '<th class = "head">Value</th></tr>';
+      var table = '<tr><th class = "head">Expression</th><th class = "head">Value</th></tr>';
       for(var i in this.result){
-        table += '<tr><td>' + this.result[i][0] + '</td></th>' + this.result[i][1] + '</td></th>';
+        table += '<tr><td>' + this.result[i][0] + '</td><th>' + this.result[i][1] + '</th></tr>';
       }
       return table;
     }
@@ -48,7 +48,7 @@ export default {
         this.result.pop();
       }
       var log = JSON.stringify(this.result);
-      localStorage.getItem8('log',log);
+      localStorage.getItem('log',log);
     }
   }
 }
@@ -67,16 +67,19 @@ export default {
 tr td{
   padding:5px;
   border:1px solid gray;
+  text-align: center;
 }
 
 tr th{
   padding:5px;
   border:1px solid gray; 
+  text-align: center;
 }
 
 tr th.head{
   background-color:black;
   color:white;
+  text-align: center;
 }
 
 </style>
